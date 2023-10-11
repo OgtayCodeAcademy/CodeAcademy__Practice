@@ -1,0 +1,16 @@
+.container{
+    width: 40%;
+    margin: 0 auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 30px;
+}
+.col-4{
+    width: calc((100% / 12 * 4) - 50px);
+}
+.col-12{
+    width: 100%;
+}
