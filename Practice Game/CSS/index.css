@@ -33,18 +33,34 @@ a {
 }
 
 body {
-  background-color: #192A32;
+  background-color: #192a32;
 }
 
+.container {
+  margin-top: 100px;
+}
 .container .row {
-  margin: 100px 0;
+  margin: 10px 0;
 }
 .container .row .col-4 {
   display: flex;
-  background-color: #1F3540;
+  background-color: #1f3540;
   height: 150px;
   border-radius: 20px;
   border-bottom: 5px solid #121f25;
+}
+.container .row .xo-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .row .xo-col .fa-xmark {
+  color: cyan;
+  font-size: 40px;
+}
+.container .row .xo-col .fa-o {
+  color: orange;
+  font-size: 35px;
 }
 .container .row .icons-col {
   padding-left: 10px;
@@ -84,33 +100,7 @@ body {
   border-radius: 10px;
   background-color: gray;
 }
-.container .row .col-x {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container .row .col-x:hover i {
-  display: inline-block;
-}
-.container .row .col-x i {
-  display: none;
-  font-size: 70px;
-  color: cyan;
-}
-.container .row .col-o {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container .row .col-o:hover i {
-  display: inline-block;
-}
-.container .row .col-o i {
-  display: none;
-  font-size: 70px;
-  color: orange;
-}
-.container .row .x-you {
+.container .row .user1 {
   height: 90px;
   justify-content: center;
   align-items: center;
@@ -118,7 +108,7 @@ body {
   flex-direction: column;
   background-color: cyan;
 }
-.container .row .x-you p {
+.container .row .user1 p {
   font-size: 30px;
   font-weight: 900;
 }
@@ -134,7 +124,7 @@ body {
   font-size: 30px;
   font-weight: 900;
 }
-.container .row .cpu {
+.container .row .user2 {
   height: 90px;
   justify-content: center;
   align-items: center;
@@ -142,7 +132,7 @@ body {
   flex-direction: column;
   background-color: orange;
 }
-.container .row .cpu p {
+.container .row .user2 p {
   font-size: 30px;
   font-weight: 900;
 }/*# sourceMappingURL=index.css.map */
