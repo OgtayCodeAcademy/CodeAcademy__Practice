@@ -1,0 +1,70 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "price": 15,
+      "name": "It",
+      "genre": "Novel",
+      "pageCount": "1168",
+      "coverImage": "https://img.etimg.com/thumb/msid-99882776,width-300,height-225,imgsize-690414,,resizemode-75/8-best-stephen-king-books-on-amazon.jpg",
+      "author": "Stephen King",
+      "year": "2017",
+      "description": "Stephen King's classic #1 New York Times bestseller and the basis for the massively successful films It: Chapter One and It: Chapter Two as well as inspiration for HBO Max’s upcoming Welcome to Derry—about seven adults who return to their hometown to confront a nightmare they had first stumbled upon as teenagers...an evil without a name: It.Welcome to Derry, Maine. It’s a small city, a place as hauntingly familiar as your own hometown. Only in Derry the haunting is real.They were seven teenagers when they first stumbled upon the horror. Now they are grown-up men and women who have gone out into the big world to gain success and happiness. But the promise they made twenty-eight years ago calls them reunite in the same place where, as teenagers, they battled an evil ..."
+    },
+    {
+      "id": "2",
+      "price": 10,
+      "name": "The Master And Margarita",
+      "genre": "Romance Novel",
+      "pageCount": "432",
+      "coverImage": "https://play-lh.googleusercontent.com/hnhZ-Zuhp-hqfOdU6Mvj-pk53lylmEaQfKuGrLWrcUEZqDn4GLNUMFFrjmVXiftH3ULXAqt64htf0Q=s320",
+      "author": "Mikhail Bulgakov",
+      "year": "2007",
+      "description": "Mikhail Bulgakov's The Master and Margarita is a fiercely satirical fantasy that remained unpublished in its author's home country for over thirty years. This Penguin Classics edition is translated with an introduction by Richard Pevear and Larissa Volokhonsky, the acclaimed translators of Tolstoy's Anna Karenina.In Soviet Moscow, God is dead, but the devil - to say nothing of his retinue of demons, from a loudmouthed, gun-toting tomcat, to the fanged fallen angel Koroviev - is very much alive. As death and destruction spread through the city like wildfire, condemning Moscow's cultural elite to prison cells and body bags, only a madman, the Master, and Margarita, his beautiful, courageous lover, can hope to end the chaos. Written in secret during the darkest days of Stalin's reign a..."
+    },
+    {
+      "id": "3",
+      "price": 35,
+      "name": "The Lord of the Rings",
+      "genre": "Fantasy",
+      "pageCount": "1216",
+      "coverImage": "https://i.pinimg.com/236x/48/bf/2e/48bf2e1f0556628d138bf1c42bc35fe6--i-love-books-read-books.jpg",
+      "author": "John Ronald Reuel Tolkien",
+      "year": "2012",
+      "description": "Includes the 50th anniversary fully corrected text setting and an extensive new index An extraordinary work -- pure excitement. -- New York Times Book Review One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind themIn ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. After many ages it fell by chance into the hands of the hobbit Bilbo Baggins.From Sauron's fastness in the Dark Tower of Mordor, his power spread far and wide. Sauron gathered all the Great Rings, but always he sea..."
+    },
+    {
+      "id": "4",
+      "price": 25,
+      "name": "A Tale of Two Cities",
+      "genre": "Historical Novel",
+      "pageCount": "304",
+      "coverImage": "https://i.pinimg.com/736x/c4/f6/d7/c4f6d73d203cb48611f645fee1ad8c58--charles-dickens-diving.jpg",
+      "author": "Charles Dickens",
+      "year": "1998",
+      "description": "It was the time of the French Revolution — a time of great change and great danger. It was a time when injustice was met by a lust for vengeance, and rarely was a distinction made between the innocent and the guilty. Against this tumultuous historical backdrop, Dickens' great story of unsurpassed adventure and courage unfolds.Unjustly imprisoned for 18 years in the Bastille, Dr. Alexandre Manette is reunited with his daughter, Lucie, and safely transported from France to England. It would seem that they could take up the threads of their lives in peace. As fate would have it though, the pair are summoned to the Old Bailey to testify against a young Frenchman — Charles Darnay — falsely accused of treason. Strangely enough, Darnay bears an uncanny resemblance to another man in the ..."
+    },
+    {
+      "id": "5",
+      "price": 5,
+      "name": "Jane Eyre",
+      "genre": "Comic",
+      "pageCount": "780",
+      "coverImage": "https://imagessl1.casadellibro.com/a/l/t0/61/9788467036961.jpg",
+      "author": "Charlotte Brontë",
+      "year": "2015",
+      "description": "Jane Eyre, romance de estreia da consagrada e renomada escritora inglesa Charlotte Brontë, narra a história de vida da heroína homônima. Quebrando paradigmas e criticando a realidade vitoriana da época, Jane Eyre desafia o destino imposto às mulheres e as posições sociais que elas deveriam ocupar. Recheado de características góticas, o romance possui personagens inesquecíveis e transformadores, como a figura do misterioso Rochester, patrão de Jane e peça vital da narrativa."
+    },
+    {
+      "id": "6",
+      "price": 80,
+      "name": "Animal Farm",
+      "genre": "Satire",
+      "pageCount": "130",
+      "coverImage": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/80542c26690389.56358ffc9d141.jpg",
+      "author": "George Orwell",
+      "year": "2018",
+      "description": "Animal Farm is regarded in the literary field as one of the most famous satirical allegories of Soviet totalitarianism. Orwell based the book on events up to and during Joseph Stalin's regime. Orwell, a democratic socialist, and a member of the Independent Labour Party for many years, was a critic of Stalin, and was suspicious of Moscow-directed Stalinism after his experiences in the Spanish Civil War.The plot is an allegory in which the pigs in a farm play the role of the Bolshevik revolutionaries and overthrow and oust the human owners of the farm, setting it up as a commune in which, at first, all animals are equal. The other characters have their parallels in the real world, but care should be taken with these comparisons as they do not always match history exactly and often si..."
+    }
+  ]
+}
