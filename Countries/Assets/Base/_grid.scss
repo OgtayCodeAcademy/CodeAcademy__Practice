@@ -1,0 +1,13 @@
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.container{
+    width: 80%;
+}
+.col-3{
+    width: calc(100% / 12 * 3);
+}
+.col-12{
+    width: 100%;
+}
