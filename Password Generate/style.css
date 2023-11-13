@@ -1,0 +1,23 @@
+.container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.col-4{
+    width: calc(100% /12 * 4);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-align: start;
+    align-items: center;
+    height: 300px;
+    flex-direction: column;
+}
+form{
+    width: 40%;
+}
+#password-length{
+    width: 15%;
+}
