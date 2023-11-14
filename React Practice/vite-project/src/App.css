@@ -1,0 +1,5 @@
+.col-4{
+    width: calc(100% / 12 * 4);
+    border: 1px solid black;
+    border-radius: 8px;
+}
