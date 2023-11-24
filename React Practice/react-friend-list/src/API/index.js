@@ -12,5 +12,5 @@ export async function GetUsers(){
 }
 
 export async function PutUser(id, payload){
-    axios.put(`${Base_Url}/${id}}`, payload)
+    axios.put(`${Base_Url}/${id}`, payload)
 }
