@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "name": "Oktay Iskandarov",
+      "email": "oktay@mail.ru",
+      "password": "Oktay123654",
+      "friends": [],
+      "id": "1"
+    },
+    {
+      "name": "Gurban Gurbanzade",
+      "email": "gurban@mail.ru",
+      "password": "Gurban123654",
+      "friends": [],
+      "id": "2"
+    },
+    {
+      "name": "Elnur Khalilov",
+      "email": "elnur@mail.ru",
+      "password": "Elnur123654",
+      "friends": [],
+      "id": "3"
+    }
+  ]
+}

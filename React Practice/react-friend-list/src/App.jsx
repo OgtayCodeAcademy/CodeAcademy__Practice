@@ -34,8 +34,16 @@ function reducer(state, action){
         if (JSON.parse(localStorage.getItem('current-user')).friends.find((friend)=> friend.id === action.added_user_id)) {
           alert("user already in your friend list")
         }else{
-          localStorage.setItem('current-user', JSON.stringify({...USER, friends: [...USER.friends, {id: action.added_user_id, name: action.added_user_name}]}))
-          PutUser(JSON.parse(localStorage.getItem('current-user')).id, JSON.parse(localStorage.getItem('current-user')))
+          // localStorage.setItem('current-user', JSON.stringify({...USER, friends: [...USER.friends, {id: action.added_user_id, name: action.added_user_name, isFriend: false}]}))
+          // PutUser(JSON.parse(localStorage.getItem('current-user')).id, JSON.parse(localStorage.getItem('current-user')))
+          PutUser(action.added_user_id, {
+            name: action.added_user_name, 
+            email: action.added_user_email,
+            password: action.added_user_password,
+            friends: action.added_user_friends,
+            id: action.added_user_id
+          })
+          console.log("action id",action.added_user_id);
         }  
       }
       
@@ -112,17 +120,47 @@ export default function App() {
             </Typography>
             <Typography variant="body2">
               <span style={{color: (
-                JSON.parse(localStorage.getItem('current-user')).friends.find((friend)=> friend.id === user.id)
+                JSON.parse(localStorage.getItem('current-user')).friends.find((friend)=> friend.id === user.id && friend.isFriend == true)
                 ? 
                 "green"
                 :
                 "red"
-              )}}>Friend (<button>Y</button> / <button>N</button>)</span>
+              )}}>Friend {(Currentuser.friends.find((friend)=>friend.id == user.id && friend.isFriend === false)) ? <>
+                <button onClick={()=>{
+                  let filtred_friends = Currentuser.friends.filter((friend)=>friend.id !== user.id)
+                  localStorage.setItem('current-user', JSON.stringify({...Currentuser, friends: [...filtred_friends, {id: user.id, name: user.name, isFriend: true}]}))
+                  PutUser(Currentuser.id, {...Currentuser, friends: [...filtred_friends, {id: user.id, name: user.name, isFriend: true}]})
+                  PutUser(user.id, {
+                    name: user.name,
+                    email: user.email, 
+                    password: user.password,
+                    friends:[...user.friends, {id: Currentuser.id, name: Currentuser.name, isFriend: true}],
+                    id:user.id
+                  })
+                }}>Y</button>
+                <button onClick={()=>{
+                  let filtred_friends = Currentuser.friends.filter((friend)=>friend.id !== user.id)
+                  PutUser(Currentuser.id, {...Currentuser, friends: [...filtred_friends]})
+                  localStorage.setItem('current-user', JSON.stringify({...Currentuser, friends: [...filtred_friends]}))
+                }}>N</button>
+              </> : null}</span>
             </Typography>
           </CardContent>
           <CardActions>
             <Button size="small" onClick={()=>{
-              dispatch({type: 'add-friend', added_user_id: user.id, added_user_name: user.name})
+              dispatch({
+                type: 'add-friend', 
+                added_user_name: user.name, 
+                added_user_email: user.email,
+                added_user_password: user.password,
+                added_user_friends: [...user.friends, {
+                  id: JSON.parse(localStorage.getItem('current-user')).id, 
+                  name: JSON.parse(localStorage.getItem('current-user')).name, 
+                  isFriend: false
+                }],
+                added_user_id: user.id
+              })
+              console.log("user id", user.id);
             }}>Add to Friends</Button>
             <Button style={{color: "red"}}>Delete Friend</Button>
           </CardActions>
