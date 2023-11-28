@@ -1,8 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Kicik bug var. Admin paneldə card decline etdikde hersey duzgun isleyir, amma eyer iki carddan birinci birini declne etsək sonraki cardi confirm etsək decline olunmus cardda apiyə düşür (isConfirmed dəyəri: False olur). İlk öncə confirm edib sonra decline etsəl hər şey düzgün işləyir.

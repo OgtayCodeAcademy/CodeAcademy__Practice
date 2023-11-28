@@ -62,6 +62,7 @@ export default function CardsSection({CurrentUser}) {
               cardDescription: newCardInputs.description,
               cardImage: newCardInputs.image,
             })
+              setNewCardInputs({image: "https://www.birdlife.org/wp-content/uploads/2021/06/Hummingbird-Norbert-Hentges-Unsplash-edited-scaled.jpg", tittle: 'HummingBird', description: 'Hummingbirds have compact, strongly muscled bodies and rather long, bladelike wings that, unlike the wings of other birds, articulate (connect) to the body only from the shoulder joint. '})
             }}>Send to approval</Button>
             <input type="text" placeholder="Image Link" onChange={(e)=>{
               setNewCardInputs({...newCardInputs, image: e.target.value});

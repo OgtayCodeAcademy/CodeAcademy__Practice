@@ -21,7 +21,7 @@ export default function AdminPanel({ CurrentUser, users }) {
     <>
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', marginTop: '100px'}} className="container">
         {cards_array.map((CARD, idx) => {
-          return (
+          return (CARD.isConfirmed == false &&  (
             <Card key={idx} sx={{ maxWidth: 345 }}>
               <CardMedia
                 sx={{ height: 140 }}
@@ -37,20 +37,29 @@ export default function AdminPanel({ CurrentUser, users }) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant="contained" style={{color: 'white', backgroundColor: 'seagreen'}} size="small" onClick={()=>{
+                <Button variant="contained" style={{color: 'white', backgroundColor: 'seagreen'}} size="small" onClick={async ()=>{
                   axios.get(`https://6564178bceac41c0761d637a.mockapi.io/users/${CARD.id}`)
                   .then((response)=>{
                     setCardsOwner(response.data)
                   })
-                  console.log(cardsOwner.cards);
-                  filtred_cards = cardsOwner.cards.filter((card)=> card.tittle !== CARD.tittle && card.description !== CARD.description)
+                  filtred_cards = await cardsOwner.cards.filter((card)=> card.tittle !== CARD.tittle && card.description !== CARD.description)
                   setCardsOwner({...cardsOwner, cards: [...filtred_cards, {description: CARD.description, id: CARD.id, image: CARD.image, tittle: CARD.tittle, isConfirmed: true}]})
-                  axios.put(`https://6564178bceac41c0761d637a.mockapi.io/users`, cardsOwner)
+                  cardsOwner.cards = [...filtred_cards, {description: CARD.description, id: CARD.id, image: CARD.image, tittle: CARD.tittle, isConfirmed: true}]
+                  axios.put(`https://6564178bceac41c0761d637a.mockapi.io/users/${CARD.id}`, cardsOwner)
                 }}>Confirm</Button>
-                <Button variant="contained" style={{color: 'white', backgroundColor: 'red'}} size="small">Decline</Button>
+                <Button variant="contained" style={{color: 'white', backgroundColor: 'red'}} size="small" onClick={async ()=>{
+                  axios.get(`https://6564178bceac41c0761d637a.mockapi.io/users/${CARD.id}`)
+                  .then((response)=>{
+                    setCardsOwner(response.data)
+                  })
+                  filtred_cards = await cardsOwner.cards.filter((card)=> card.tittle !== CARD.tittle && card.description !== CARD.description)
+                  setCardsOwner({...cardsOwner, cards: [...filtred_cards]})
+                  cardsOwner.cards = [...filtred_cards]
+                  axios.put(`https://6564178bceac41c0761d637a.mockapi.io/users/${CARD.id}`, cardsOwner)
+                }}>Decline</Button>
               </CardActions>
             </Card>
-          );
+          ))         
         })}
       </div>
     </>
