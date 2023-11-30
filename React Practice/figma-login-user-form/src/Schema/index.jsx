@@ -9,5 +9,5 @@ export const BasicSchema = yup.object().shape({
     Email: yup.string().email('invalid input').required('This field is required'),
     Phone: yup.string().min(10, 'minimum 10 symbols').max(10, 'Maximum 10 symbols').matches(phoneRegex, 'Phone must include only numbers'),
     Password: yup.string().matches(passwordRegex, 'invalid password type').required('This field is required'),
-    agreement: yup.boolean().required('You need to accept terms of use')
+    agreement: yup.boolean().oneOf([true], "You need to accept terms of use").required('You need to accept terms of use')
 })

@@ -1,13 +1,27 @@
 import classes from './index.module.scss';
 import { Field, Formik, useFormik } from "formik";
 import { BasicSchema } from "../../Schema";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const onSubmit = (values, action) => {
-  action.handleReset();
-  console.log(values);
-}
 
 export default function Login() {
+  const navigate = useNavigate()
+  const onSubmit =  (values, action) => {
+     axios.post('https://6564178bceac41c0761d637a.mockapi.io/users', {
+      Firstname: values.Firstname,
+      Lastname: values.Lastname,
+      Email: values.Email,
+      Phone: values.PhoneIndex + values.Phone,
+      Password: values.Password,
+      agreement: values.agreement
+    })
+    action.resetForm();
+    console.log(values);
+    navigate('/user')
+  
+   
+  }
   const {values, handleSubmit, handleChange, errors, handleBlur, touched} = useFormik({
     initialValues: {
       Firstname: '',
@@ -57,7 +71,7 @@ export default function Login() {
               <label htmlFor="agreement">I'm agree</label>
               <input onBlur={handleBlur} value={values.agreement} onChange={handleChange} name="agreement" type="checkbox" />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Register</button>
         </form>
     </>
   )
