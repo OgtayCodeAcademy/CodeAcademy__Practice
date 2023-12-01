@@ -1,6 +1,7 @@
 import Home from "../Pages/Home";
+import Register from "../Pages/Register";
 import Login from "../Pages/Login";
-import User from "../Pages/User";
+import UserPage from "../Pages/Userpage";
 
 
 export const ROUTES = [
@@ -15,22 +16,32 @@ export const ROUTES = [
         ]
     },
     {
+        path: '/user-page',
+        element: <UserPage></UserPage>,
+        children: [
+            {
+                path: '',
+                element: <UserPage></UserPage>
+            }
+        ]
+    },
+    {
+        path: '/register',
+        element: <Register></Register>,
+        children: [
+            {
+                path: '',
+                element: <Register></Register>
+            }
+        ]
+    },
+    {
         path: '/login',
         element: <Login></Login>,
         children: [
             {
                 path: '',
                 element: <Login></Login>
-            }
-        ]
-    },
-    {
-        path: '/user',
-        element: <User></User>,
-        children: [
-            {
-                path: '',
-                element: <User></User>
             }
         ]
     }

@@ -1,78 +1,55 @@
-import classes from './index.module.scss';
-import { Field, Formik, useFormik } from "formik";
-import { BasicSchema } from "../../Schema";
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
+import { useContext } from 'react'
+import classes from './index.module.scss'
+import { useFormik } from 'formik'
+import { GetAllUsers } from '../../Services/API/Users'
+import LoginNavbar from '../../Components/LoginNavbar'
+import { UserContext } from "../../Services/Context/UserContext";
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
+  const {user} = useContext(UserContext)
+  const {setUser} = useContext(UserContext)
   const navigate = useNavigate()
-  const onSubmit =  (values, action) => {
-     axios.post('https://6564178bceac41c0761d637a.mockapi.io/users', {
-      Firstname: values.Firstname,
-      Lastname: values.Lastname,
-      Email: values.Email,
-      Phone: values.PhoneIndex + values.Phone,
-      Password: values.Password,
-      agreement: values.agreement
+  const onSubmit = (values, action) => {
+    GetAllUsers().then((users)=>{
+      let founded_user = users.find((user)=> user.Email == values.email && user.Password == values.password)
+      if (founded_user) {
+        if (values.rememberMe === true) {
+          localStorage.setItem('user', JSON.stringify({name: founded_user.Firstname + " " + founded_user.Lastname, email: founded_user.Email, phone: founded_user.Phone, password: founded_user.Password}))
+        }else{
+          sessionStorage.setItem('user', JSON.stringify({name: founded_user.Firstname + " " + founded_user.Lastname, email: founded_user.Email, phone: founded_user.Phone, password: founded_user.Password}))
+        }  
+        setUser({...user, name: founded_user.Firstname + " " + founded_user.Lastname, email: founded_user.Email})
+        navigate('/')
+      }else{
+        window.alert('Email or password is incorrect')
+      }
     })
-    action.resetForm();
-    console.log(values);
-    navigate('/user')
-  
-   
+    
+    
   }
-  const {values, handleSubmit, handleChange, errors, handleBlur, touched} = useFormik({
+  const {values, handleChange, handleSubmit} = useFormik({
     initialValues: {
-      Firstname: '',
-      Lastname: '',
-      Email : '',
-      Phone: '',
-      PhoneIndex: '+994',
-      Password: '',
-      agreement: false
+      email: '',
+      password: '',
+      rememberMe: false
     },
-    onSubmit,
-    validationSchema: BasicSchema,
+    onSubmit
   })
   return (
     <>
-        <form className={`${classes.login_form}`} onSubmit={handleSubmit} action="">
-            <div>
-              <label htmlFor="Firstname"></label>
-              <input onBlur={handleBlur} style={{borderColor: (errors.Firstname && touched.Firstname) && 'red'}} value={values.Firstname} onChange={handleChange} name="Firstname" type="text" placeholder="Firstname" />
-              {((errors.Firstname && touched.Firstname) && <><span>{errors.Firstname}</span></>)}
-            </div>
-            <div>
-              <label htmlFor="Lastname"></label>
-              <input onBlur={handleBlur} style={{borderColor: (errors.Lastname && touched.Lastname) && 'red'}} value={values.Lastname} onChange={handleChange} name="Lastname" type="text" placeholder="Lastname"/>
-              {((errors.Lastname && touched.Lastname) && <><span>{errors.Lastname}</span></>)}
-            </div>
-            <div>
-              <label htmlFor="Email"></label>
-              <input onBlur={handleBlur} style={{borderColor: (errors.Email && touched.Email) && 'red'}} value={values.Email} onChange={handleChange} name="Email" type="email" placeholder="Email"/>
-              {((errors.Email && touched.Email) && <><span>{errors.Email}</span></>)}
-            </div>
-            <select name="PhoneIndex" onChange={handleChange}>
-              <option value="">Select Your Country</option>
-              <option value="+994">Azerbaijan</option>
-            </select>
-            <div>
-              <label htmlFor="Phone"></label>
-              <input onBlur={handleBlur} style={{borderColor: (errors.Phone && touched.Phone) && 'red'}} value={values.Phone} onChange={values.PhoneIndex !== '' && handleChange } name="Phone" type="text" placeholder="Phone"/>
-              {((errors.Phone && touched.Phone) && <><span>{errors.Phone}</span></>)}
-            </div>
-            <div>
-              <label htmlFor="Password"></label>
-              <input onBlur={handleBlur} style={{borderColor: (errors.Password && touched.Password) && 'red'}} value={values.Password} onChange={handleChange} name="Password" type="text" placeholder="Password"/>
-              {((errors.Password && touched.Password) && <><span>{errors.Password}</span></>)}
-            </div>
-            <div className={`${classes.agreement_input}`}>
-              <label htmlFor="agreement">I'm agree</label>
-              <input onBlur={handleBlur} value={values.agreement} onChange={handleChange} name="agreement" type="checkbox" />
-            </div>
-            <button type="submit">Register</button>
-        </form>
+        <LoginNavbar></LoginNavbar>
+        <div className={classes.container}>
+          <form onSubmit={handleSubmit} action="">
+            <label htmlFor="email"></label>
+            <input name='email' value={values.email} type="email" onChange={handleChange} placeholder='email'/>
+            <label htmlFor="password"></label>
+            <input name='password' value={values.password} type="password" onChange={handleChange}  placeholder='passowrd'/>
+            <label htmlFor="rememberMe">Remember Me: </label>
+            <input name='rememberMe' value={values.rememberMe} type="checkbox" onChange={handleChange}/>
+            <button type='submit'>Log In</button>
+          </form>
+        </div>
     </>
   )
 }

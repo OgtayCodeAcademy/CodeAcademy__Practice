@@ -1,15 +1,17 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import {ROUTES} from './Routes'
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import UserContextProvider from "./Services/Context/UserContext";
+import { ROUTES } from "./Routes";
 
-const route = createBrowserRouter(ROUTES)
+const route = createBrowserRouter(ROUTES);
 
 function App() {
-
   return (
     <>
-      <RouterProvider router={route}/>
+      <UserContextProvider>
+        <RouterProvider router={route} />
+      </UserContextProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
