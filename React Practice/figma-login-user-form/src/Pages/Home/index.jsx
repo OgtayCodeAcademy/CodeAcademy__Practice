@@ -48,7 +48,7 @@ export default function Home() {
           ));
         }else{
           if (user.basket.find((element)=> element.id == record.id)) {
-            toast.error("Already in yout basket")
+            toast.error("Already in your basket")
           }else{
             setUser({...user, basket: [...user.basket, {id: record.id, name: record.name, description: record.description}]})
           }

@@ -25,7 +25,10 @@ export default function UserPage() {
       key: 'key',
       dataIndex: 'key',
       render: (text, record) => (
-       <Button  onClick={()=>console.log(record)}>
+       <Button  onClick={()=>{
+        let filtred_basket = user.basket.filter((element)=> element.id !== record.id)
+        setUser({...user, basket: [...filtred_basket]})
+       }}>
          {"Remove"}
        </Button>
       ),
